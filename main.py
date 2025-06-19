@@ -2,6 +2,7 @@ import sys
 from src.logging.logger  import logging
 from src.components.scraper import WebScraper
 from src.exception.exception import InformaitonThoeryProjectException
+from src.components.indexer import IndexBuilder
 
 # testing logger
 
@@ -29,3 +30,10 @@ from src.exception.exception import InformaitonThoeryProjectException
 #         logging.error(e)
 #     except Exception as e:
 #         logging.error(f"An unexpected error occurred: {e}")
+
+# testing indexer
+
+indexer = IndexBuilder(directory="data/scraped", index_file="data/index.json")
+indexer.build_index()
+indexer.save_index()
+
